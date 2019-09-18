@@ -1,0 +1,10 @@
+package board.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = {"board.dao", "board.config.service"})
+public class ApplicationConfig {
+
+}
