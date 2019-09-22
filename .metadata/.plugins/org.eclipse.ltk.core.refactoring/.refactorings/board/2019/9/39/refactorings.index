@@ -1,0 +1,5 @@
+1569142597432	Rename type 'FrontController'
+1569146999616	Rename type 'SignupController'
+1569148201504	Move 'board_main.jsp' to 'main'
+1569148207992	Rename resource 'main'
+1569149045071	Rename resource 'login'

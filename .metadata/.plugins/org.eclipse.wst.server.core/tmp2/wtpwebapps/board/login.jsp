@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,12 @@
 <body>
 	<div id="divposition">
 		<h1>로그인 페이지</h1>
-		<form method="post" action="">
+		<c:if test="${sessionScope.LoginError != null }">
+			${sessionScope.LoginError };
+			<c:remove var="LoginError" scope="session"/>
+		</c:if>
+		
+		<form method="post" action="login">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -35,7 +41,7 @@
 	
 		<br><br>
 		<a href="#" id="hreffont">아이디/비밀번호 찾기</a> &nbsp;&nbsp;
-		<a href="#" id="hreffont">회원가입</a>
+		<a href="signup.jsp" id="hreffont">회원가입</a>
 	</div>
 </body>
 </html>

@@ -2,6 +2,8 @@ package board.dto;
 
 public class Customer {
 	private String id, password, name, number;
+	
+	public Customer() {}
 
 	public Customer(String id, String password, String name, String number) {
 		this.id = id;

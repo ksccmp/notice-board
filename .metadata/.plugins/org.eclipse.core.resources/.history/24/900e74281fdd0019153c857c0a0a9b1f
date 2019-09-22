@@ -1,0 +1,33 @@
+package board.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import board.dao.BoardDAO;
+import board.dto.Customer;
+
+@Controller
+public class SignupController {
+	
+	@Autowired
+	BoardDAO dao;
+	
+	/*@PostMapping(path="/signup")
+	public String signup(@RequestParam(name="id") String id, @RequestParam(name="password") String password,
+							@RequestParam(name="name") String name, @RequestParam(name="number") String number) {
+		Customer customer = new Customer(id, password, name, number);
+		System.out.println(customer);
+		dao.insert(customer);
+		return "redirect:main.jsp";
+	}*/
+	
+	@PostMapping(path="/signup")
+	public String signup(@ModelAttribute Customer customer) {
+		System.out.println(customer);
+		dao.insert(customer);
+		return "redirect:main.jsp";
+	}
+}

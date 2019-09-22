@@ -1,0 +1,18 @@
+package board.dao;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BoardDAO {
+	private NamedParameterJdbcTemplate jdbc;
+	private SimpleJdbcInsert insertAction;
+	
+	public BoardDAO(DataSource datasource) {
+		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
+		
+	}
+}
