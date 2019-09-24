@@ -1,0 +1,34 @@
+package board.dao;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+
+import board.dto.Board;
+
+public class BoardDAO {
+	private NamedParameterJdbcTemplate jdbc = null;
+	private SimpleJdbcInsert insertAction = null;
+	
+	public BoardDAO(DataSource dataSource) {
+		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
+		this.insertAction = new SimpleJdbcInsert(dataSource).withTableName("boardinformation").usingGeneratedKeyColumns("number");
+	}
+	
+	public void insert(String Board) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(Board);
+		insertAction.execute(params);
+	}
+	
+	public List<Board> searchAll() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("number", number);
+	}
+}

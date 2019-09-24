@@ -3,8 +3,6 @@ INDEX VERSION 1.3+C:\Users\User\Documents\notice_board\.metadata\.plugins\org.ec
 3629441615.index
 1425716597.index
 1287504392.index
-1180509393.index
 218154117.index
-301660666.index
 2655383006.index
 2995856043.index

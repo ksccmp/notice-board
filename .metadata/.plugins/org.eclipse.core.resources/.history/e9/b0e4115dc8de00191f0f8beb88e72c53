@@ -1,0 +1,8 @@
+package board.dto;
+
+public class Board {
+	private id, title, contents, regdate;
+	public Board() {}
+	
+	
+}

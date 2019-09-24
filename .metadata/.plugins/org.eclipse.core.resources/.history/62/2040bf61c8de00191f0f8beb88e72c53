@@ -1,0 +1,8 @@
+package board.dto;
+
+public class Board {
+	private String id, title, contents, regdate;
+	public Board() {}
+	
+	
+}

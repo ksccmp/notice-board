@@ -1,0 +1,6 @@
+package board.service;
+
+public interface BoardService {
+	public static final int LIMIT = 5;
+	public List<Board> getBoards(int start);
+}

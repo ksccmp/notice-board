@@ -1,0 +1,25 @@
+package board.dto;
+
+import java.util.Date;
+
+public class Board {
+	private int number;
+	private String id, title, contents;
+	private Date regdate;
+	public Board() {}
+	
+	public Board(int number, String id, String title, String contents, Date regdate) {
+		this.number = number;
+		this.id = id;
+		this.title = title;
+		this.contents = contents;
+		this.regdate = regdate;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Board [number=" + number + ", id=" + id + ", title=" + title + ", contents=" + contents + ", regdate="
+				+ regdate + "]";
+	}
+}

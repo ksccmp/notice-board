@@ -1,0 +1,15 @@
+package board.service;
+
+import java.util.List;
+
+import board.dto.Board;
+
+public class BoardServiceImpl implements BoardService {
+	public void addBoard(board.dto.Board board) {
+		
+	};
+	
+	public List<Board> getBoards(int start) {
+		return null;
+	}
+}

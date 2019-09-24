@@ -13,6 +13,6 @@
 		${sessionScope.IsLogin }님 반갑습니다. &nbsp;&nbsp;
 		<a href="logout">로그아웃</a> <br><br>
 	</c:if>
-	<a href="login_filter/board_main.jsp">게시판 사용하러 가기</a>
+	<a href="board_main">게시판 사용하러 가기</a>
 </body>
 </html>

@@ -1,0 +1,50 @@
+package board.dto;
+
+public class Board {
+	private String id, title, contents, regdate;
+	public Board() {}
+	
+	public Board(String id, String title, String contents, String regdate) {
+		this.id = id;
+		this.title = title;
+		this.contents = contents;
+		this.regdate = regdate;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+
+	public String getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+
+	@Override
+	public String toString() {
+		return "Board [id=" + id + ", title=" + title + ", contents=" + contents + ", regdate=" + regdate + "]";
+	}
+}

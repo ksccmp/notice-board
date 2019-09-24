@@ -3,3 +3,6 @@
 1569148201504	Move 'board_main.jsp' to 'main'
 1569148207992	Rename resource 'main'
 1569149045071	Rename resource 'login'
+1569249346948	Move compilation unit
+1569329329028	Rename type 'BoardDAO'
+1569329408965	Rename type 'FrontController'

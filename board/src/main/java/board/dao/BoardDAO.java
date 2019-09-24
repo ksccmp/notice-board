@@ -7,33 +7,45 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-import board.dto.Customer;
+import board.dto.Board;
 
 @Repository
 public class BoardDAO {
-	private NamedParameterJdbcTemplate jdbc;
-	private SimpleJdbcInsert insertAction;
+	private NamedParameterJdbcTemplate jdbc = null;
+	private JdbcTemplate jd = null;
+	private SimpleJdbcInsert insertAction = null;
+	private RowMapper<Board> rowMapper = BeanPropertyRowMapper.newInstance(Board.class);
 	
 	public BoardDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
-		this.insertAction = new SimpleJdbcInsert(dataSource).withTableName("customerinformation");
+		this.jd = new JdbcTemplate(dataSource);
+		this.insertAction = new SimpleJdbcInsert(dataSource).withTableName("boardinformation").usingGeneratedKeyColumns("number");
 	}
 	
-	public void insert(Customer customer) {
-		SqlParameterSource params = new BeanPropertySqlParameterSource(customer);
+	public void insert(Board board) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(board);
 		insertAction.execute(params);
 	}
 	
-	public boolean login(String id, String password) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("id", id);
-		List<Customer> customer = jdbc.query("select password from customerinformation where id=:id", map, BeanPropertyRowMapper.newInstance(Customer.class));
-		return password.equals(customer.get(0).getPassword()) ? true : false;
+	public List<Board> searchAll(int start, int limit) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("start", start);
+		map.put("limit", limit);
+		
+		List<Board> boards = jdbc.query("select * from boardinformation limit :start, :limit", map, rowMapper);
+		
+		return boards;
+	}
+	
+	public int size() {
+		return jd.queryForObject("select count(*) from boardinformation", Integer.class);
 	}
 }
