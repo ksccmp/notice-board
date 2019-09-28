@@ -16,7 +16,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Transactional(readOnly=false)
 	public void addBoard(Board board) {
-		
+		dao.insert(board);
 	};
 	
 	@Transactional
@@ -27,5 +27,16 @@ public class BoardServiceImpl implements BoardService {
 	
 	public int BoardCount() {
 		return dao.size();
+	}
+	
+	@Transactional
+	public Board getBoard(int num) {
+		Board board = dao.search(num);
+		return board;
+	}
+	
+	@Transactional
+	public void changeBoard(int num, String title, String contents) {
+		dao.update(num, title, contents);
 	}
 }

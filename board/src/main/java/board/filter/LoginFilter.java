@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter("/login_filter/*")
+@WebFilter(value={"/login_filter/*", "/board_main"})
 public class LoginFilter implements Filter {
 
     /**
@@ -42,7 +42,7 @@ public class LoginFilter implements Filter {
 			chain.doFilter(request, response);
 		} else {
 			HttpServletResponse res = (HttpServletResponse)response;
-			res.sendRedirect("../login.jsp");
+			res.sendRedirect("/board/login.jsp");
 		}
 		System.out.println("filter 영향권");
 		System.out.println(req.getServletPath());

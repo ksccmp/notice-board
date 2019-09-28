@@ -9,4 +9,6 @@ public interface BoardService {
 	public List<Board> getBoards(int start);
 	public void addBoard(Board board);
 	public int BoardCount();
+	public Board getBoard(int num);
+	public void changeBoard(int num, String title, String contents);
 }

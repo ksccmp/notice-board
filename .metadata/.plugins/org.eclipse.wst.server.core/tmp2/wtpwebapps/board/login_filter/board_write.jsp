@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>게시글 작성 페이지</h1>
-	<form method="post" action="">
+	<form method="post" action="../board_write">
 		<p>제목</p> 
 		<input type="text" id="title" name="title"> <br><br>
 		<p>내용</p> 

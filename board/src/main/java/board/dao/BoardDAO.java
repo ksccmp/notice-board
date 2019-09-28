@@ -48,4 +48,17 @@ public class BoardDAO {
 	public int size() {
 		return jd.queryForObject("select count(*) from boardinformation", Integer.class);
 	}
+	
+	public Board search(int num) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("num", num);
+		
+		List<Board> boards = jdbc.query("select * from boardinformation where num = :num", map, rowMapper);
+		
+		return boards.get(0);
+	}
+	
+	public void update(int num, String title, String contents) {
+		jd.update("update boardinformation set title = ?, contents = ? where num = ?", title, contents, num);
+	}
 }

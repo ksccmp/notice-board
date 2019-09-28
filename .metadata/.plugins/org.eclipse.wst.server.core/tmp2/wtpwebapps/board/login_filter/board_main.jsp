@@ -8,10 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:if test="${not empty sessionScope.boardwrite }">
+		<script>
+			alert("게시글이 성공적으로 저장됬습니다.")
+		</script>
+		<c:remove var="boardwrite" scope="session"/>
+	</c:if>
 	<h1>게시판 페이지</h1>
-	<form method="post" action="/board/login_filter/board_write.jsp">
-		<input type="submit" value="작성하기"> <br>
-	</form>
+	
+	<a href="login_filter/board_write.jsp">글 작성하기</a>
+	
 	<table border="1">
 		<tr>
 			<th>번호</th>
@@ -22,7 +28,7 @@
 		
 		<c:forEach items="${boards }" var="board">
 			<tr>
-				<td>${board.num }</td>
+				<td><a href="board_detail?num=${board.num }">${board.num }</a></td>
 				<td>${board.id }</td>
 				<td>${board.title }</td>
 				<td>${board.regdate }</td>
