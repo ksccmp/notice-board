@@ -36,4 +36,11 @@ public class CustomerDAO {
 		List<Customer> customer = jdbc.query("select password from customerinformation where id=:id", map, BeanPropertyRowMapper.newInstance(Customer.class));
 		return password.equals(customer.get(0).getPassword()) ? true : false;
 	}
+	
+	public Customer search(String id) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		List<Customer> customer = jdbc.query("select * from customerinformation where id=:id", map, BeanPropertyRowMapper.newInstance(Customer.class));
+		return customer.get(0);
+	}
 }

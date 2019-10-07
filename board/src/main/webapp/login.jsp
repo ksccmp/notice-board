@@ -40,7 +40,7 @@
 		</form>
 	
 		<br><br>
-		<a href="#" id="hreffont">아이디/비밀번호 찾기</a> &nbsp;&nbsp;
+		<a href="search.jsp" id="hreffont">아이디/비밀번호 찾기</a> &nbsp;&nbsp;
 		<a href="signup.jsp" id="hreffont">회원가입</a>
 	</div>
 </body>

@@ -15,12 +15,6 @@ create table boardinformation (
     regdate date
 );
 
-insert into boardinformation(id, title, contents, regdate) values ('asd', '첫 번재', '첫 번째 내용입니다.', '2019-09-24');
-insert into boardinformation(id, title, contents, regdate) values ('qwe', '두 번재', '두 번째 내용입니다.', '2019-09-24');
-insert into boardinformation(id, title, contents, regdate) values ('zxc', '세 번재', '세 번째 내용입니다.', '2019-09-24');
-
-select * from boardinformation limit 0, 5;
-
 set charset utf8;
 
 alter database board default character set utf8;

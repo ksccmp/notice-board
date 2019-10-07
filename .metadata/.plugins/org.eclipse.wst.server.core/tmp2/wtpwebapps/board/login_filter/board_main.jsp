@@ -8,15 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${not empty sessionScope.boardwrite }">
-		<script>
-			alert("게시글이 성공적으로 저장됬습니다.")
-		</script>
-		<c:remove var="boardwrite" scope="session"/>
-	</c:if>
 	<h1>게시판 페이지</h1>
 	
-	<a href="login_filter/board_write.jsp">글 작성하기</a>
+	<a href="login_filter/board_write.jsp">글 작성하기</a> &nbsp; &nbsp;
+	<a href="main.jsp">메인으로</a>
 	
 	<table border="1">
 		<tr>

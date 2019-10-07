@@ -39,4 +39,9 @@ public class BoardServiceImpl implements BoardService {
 	public void changeBoard(int num, String title, String contents) {
 		dao.update(num, title, contents);
 	}
+	
+	@Transactional
+	public void deleteBoard(int num) {
+		dao.delete(num);
+	}
 }

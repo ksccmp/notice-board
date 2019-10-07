@@ -1,5 +1,6 @@
 package board.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -60,7 +60,7 @@ public class BoardController {
 	}
 	
 	@GetMapping(path="/board_detail")
-	public String board_detail(@RequestParam(name="num", required=true) int num, HttpSession session) {
+	public String board_detail(@RequestParam(name="num", required=true) int num, HttpSession session) throws ParseException {
 		Board board = service.getBoard(num);
 		session.setAttribute("board", board);
 		
@@ -72,6 +72,12 @@ public class BoardController {
 								@RequestParam(name="contents", required=true) String contents) {
 		service.changeBoard(num, title, contents);
 		
+		return "redirect:board_main";
+	}
+	
+	@PostMapping(path="/board_delete")
+	public String board_delete(@RequestParam(name="num", required=true) int num) {
+		service.deleteBoard(num);
 		return "redirect:board_main";
 	}
 }

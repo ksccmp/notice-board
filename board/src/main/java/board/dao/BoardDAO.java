@@ -61,4 +61,8 @@ public class BoardDAO {
 	public void update(int num, String title, String contents) {
 		jd.update("update boardinformation set title = ?, contents = ? where num = ?", title, contents, num);
 	}
+	
+	public void delete(int num) {
+		jd.update("delete from boardinformation where num = ?", num);
+	}
 }

@@ -1,5 +1,10 @@
 package board.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +43,16 @@ public class CustomerController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("IsLogin");
 		return "redirect:main.jsp";
+	}
+	
+	@PostMapping(path="/search")
+	public void search(@RequestParam(name="id", required=true) String id, @RequestParam(name="name", required=true) String name,
+							@RequestParam(name="number", required=true) String number, HttpServletResponse response) throws IOException {
+		Customer customer = dao.search(id);
+		if(customer != null && customer.getName().equals(name) && customer.getNumber().equals(number)) {
+			response.getWriter().append("비밀번호는 " + customer.getPassword() + "입니다.");
+		} else {
+			response.getWriter().append("정보가 올바르지 않습니다.");
+		}
 	}
 }

@@ -11,4 +11,5 @@ public interface BoardService {
 	public int BoardCount();
 	public Board getBoard(int num);
 	public void changeBoard(int num, String title, String contents);
+	public void deleteBoard(int num);
 }
